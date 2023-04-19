@@ -13,6 +13,10 @@ Traffic incidents are gathered from the official [Open Data website](https://ope
     ```bash
     source myvenv/bin/activate
     ```
+- Instal dependencies
+    ```bash
+    pip install -r requirements.txt
+    ```
 - Create a ```.env``` like with these variables:
     ```bash
     URL=https://www.trafikoa.euskadi.eus/servicios/IncidenciasTDT/IncidenciasTrafikoTDTGeo
