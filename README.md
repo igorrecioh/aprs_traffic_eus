@@ -35,3 +35,4 @@ WIP
 - https://aprs.fi
 - https://davidpardavila.com/como-convertir-coordenadas-geograficas/
 - https://www.omnicalculator.com/conversion/coordinates-converter#how-to-convert-coordinates-in-dd-to-dms-or-ddm
+- https://github.com/EvanVS/APRS-Python
