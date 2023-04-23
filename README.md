@@ -20,6 +20,11 @@ Traffic incidents are gathered from the official [Open Data website](https://ope
 - Create a ```.env``` like with these variables:
     ```bash
     URL=https://www.trafikoa.euskadi.eus/servicios/IncidenciasTDT/IncidenciasTrafikoTDTGeo
+    APRS_SERVER_URL=euro.aprs2.net
+    APRS_SERVER_PORT=14580
+    CALLSIGN=<YOUR_CALLSIGN>
+    CALLSIGN_SSID=<DESIRED_SSID>
+    CALLSIGN_PASS=<APRS.IS_PASSWORD>
     ```
 
 ## How to run the script
