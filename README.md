@@ -29,3 +29,9 @@ Traffic incidents are gathered from the official [Open Data website](https://ope
 
 ## How to run the script
 WIP
+
+## References and useful links
+
+- https://aprs.fi
+- https://davidpardavila.com/como-convertir-coordenadas-geograficas/
+- https://www.omnicalculator.com/conversion/coordinates-converter#how-to-convert-coordinates-in-dd-to-dms-or-ddm

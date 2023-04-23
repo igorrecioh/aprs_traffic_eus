@@ -1,3 +1,5 @@
 myvenv/*
 .env
 *.xml
+.pytest_cache
+__pycache__
