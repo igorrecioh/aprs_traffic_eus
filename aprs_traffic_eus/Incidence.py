@@ -14,3 +14,6 @@ class Incidence:
         self.sentido = ""
         self.longitud = 0.0
         self.latitud = 0.0
+
+    def info_msg(self):
+        return self.causa + " " + self.poblacion + " " + self.carretera + " " + "Sentido: " + self.sentido
