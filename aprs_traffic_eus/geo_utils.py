@@ -86,7 +86,7 @@ def dmraw2aprsformat(lat, long):
 
 
 
-
+# Examples
 #lat = 43.4
 #long = -2.69543
 #Latitude = '4301.00N'
