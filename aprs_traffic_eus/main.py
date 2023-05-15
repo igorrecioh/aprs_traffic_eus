@@ -1,5 +1,4 @@
 import untangle
-from tabulate import tabulate
 from datetime import date
 from socket import *
 import os
@@ -7,8 +6,11 @@ from http_utils import get_XML_from_URL
 from geo_utils import dd2dm_raw,dmraw2aprsformat
 from dotenv import load_dotenv
 from aprs_utils import generate_valid_id, generate_aprs_timestamp
-import Incidence
 import time
+import XmlManager
+
+# Constants
+xmlFileName = 'IncidenciasTDT.xml'
 
 print("=================================")
 print("     aprs_traffic_eus v0.0.1     ")
@@ -32,56 +34,22 @@ today_YYmmdd = date.today().strftime("%Y-%m-%d")
 # Download new XML from source
 print("- Retrieving XML from source...")
 url = os.environ.get('URL')
-get_XML_from_URL(url)
+get_XML_from_URL(url, xmlFileName)
 
 # Parse XML file
 print("- Parsing XML file...")
-obj = untangle.parse('IncidenciasTDT.xml')
-
+obj = untangle.parse(xmlFileName)
 
 # Filtering incidences
 print("- Filtering incidences...")
-count_xml = 0
-count_today = 0
-count_filtered = 0
-data_tobe_printed = []
-list_of_incidences = []
-for incidencia in obj.raiz.children:
-    if today_YYmmdd in incidencia.fechahora_ini.cdata:
-        if "Desconocida" != incidencia.causa.cdata:
-            ind = Incidence.Incidence()
-            prov_data = []
-            ind.fechahora_ini = incidencia.fechahora_ini.cdata
-            ind.tipo = incidencia.tipo.cdata
-            ind.causa = incidencia.causa.cdata
-            ind.carretera = incidencia.carretera.cdata
-            ind.longitud = incidencia.longitud.cdata
-            ind.latitud = incidencia.latitud.cdata
-            ind.sentido = incidencia.sentido.cdata
-            prov_data.append(incidencia.fechahora_ini.cdata)
-            prov_data.append(incidencia.tipo.cdata)
-            prov_data.append(incidencia.causa.cdata)
-            prov_data.append(incidencia.carretera.cdata)
-            prov_data.append(incidencia.longitud.cdata)
-            prov_data.append(incidencia.latitud.cdata)
-            prov_data.append(incidencia.sentido.cdata)
-            data_tobe_printed.append(prov_data)
-            list_of_incidences.append(ind)
-            count_filtered+=1
-        count_today+=1
-    count_xml+=1
+xml_manager = XmlManager.XmlManager(obj)
+list_of_incidences = xml_manager.filter_incidences(today_YYmmdd)
     
-print('- Total incidences in XML file: ' + str(count_xml))
-print('- Today incidences: ' + str(count_today))
-print('- Filtered incidences: ' + str(count_filtered))
+print('- Total incidences in XML file: ' + str(xml_manager.get_xml_incidences()))
+print('- Today incidences: ' + str(xml_manager.get_today_incidences()))
+print('- Filtered incidences: ' + str(xml_manager.get_filtered_incidences()))
 
-print(
-    tabulate(
-    data_tobe_printed, 
-    headers=["Fecha/hora", "Tipo", "Causa", "Carretera", "Longitud", "Latitud", "Sentido"]
-    )
-    )
-
+xml_manager.print_filtered_incidences()
 print()
 
 # APRS

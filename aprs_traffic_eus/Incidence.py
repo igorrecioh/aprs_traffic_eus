@@ -1,19 +1,33 @@
 class Incidence:
-    def __init__(self):
-        self.tipo = ""
-        self.autonomia = ""
-        self.provincia = ""
-        self.matricula = ""
-        self.causa = ""
-        self.poblacion = ""
-        self.fechahora_ini = ""
-        self.nivel = ""
-        self.carretera = ""
-        self.pk_inicial = ""
-        self.pk_final = ""
-        self.sentido = ""
-        self.longitud = 0.0
-        self.latitud = 0.0
+    def __init__(self, 
+                 tipo, 
+                 autonomia, 
+                 provincia, 
+                 matricula, 
+                 causa, 
+                 poblacion,
+                 fechahora_ini,
+                 nivel,
+                 carretera,
+                 pk_inicial,
+                 pk_final,
+                 sentido,
+                 longitud,
+                 latitud):
+        self.tipo = tipo
+        self.autonomia = autonomia
+        self.provincia = provincia
+        self.matricula = matricula
+        self.causa = causa
+        self.poblacion = poblacion
+        self.fechahora_ini = fechahora_ini
+        self.nivel = nivel
+        self.carretera = carretera
+        self.pk_inicial = pk_inicial
+        self.pk_final = pk_final
+        self.sentido = sentido
+        self.longitud = longitud
+        self.latitud = latitud
 
     def info_msg(self):
         return self.causa + " " + self.poblacion + " " + self.carretera + " " + "Sentido: " + self.sentido
