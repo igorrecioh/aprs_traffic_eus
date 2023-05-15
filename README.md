@@ -17,7 +17,7 @@ Traffic incidents are gathered from the official [Open Data website](https://ope
     ```bash
     pip install -r requirements.txt
     ```
-- Create a ```.env``` like with these variables:
+- Create a ```.env``` file with these variables, as shown in .env_template:
     ```bash
     URL=https://www.trafikoa.euskadi.eus/servicios/IncidenciasTDT/IncidenciasTrafikoTDTGeo
     APRS_SERVER_URL=euro.aprs2.net
@@ -28,7 +28,11 @@ Traffic incidents are gathered from the official [Open Data website](https://ope
     ```
 
 ## How to run the script
-WIP
+- With the virtual environment activated and a .env file created and filled, we are ready to run the script!
+
+```bash
+python main.py
+```
 
 ## References and useful links
 
