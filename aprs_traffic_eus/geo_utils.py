@@ -76,6 +76,10 @@ def dmraw2aprsformat(lat, long):
     long_dec = long.split('º')[1].split('.')[0]
     long_min_dec = long.split('º')[1].split('.')[1]
 
+    # Add a zero if decimal minutes have only one digit
+    if len(long_dec) < 2:
+        long_dec = '0' + long_dec
+
     if len(long_min_dec) == 4:
         long_aprs_str = long_deg_str + long_dec + "." + long_min_dec[0] + long_min_dec[1] + long_min_dec[3]
     else:
