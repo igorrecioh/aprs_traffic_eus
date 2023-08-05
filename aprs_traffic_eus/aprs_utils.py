@@ -48,7 +48,7 @@ def send_incidences(list_of_incidences, server, port, callsign, password, ssid):
         # Close socket
         aprsfi_socket.shutdown(0)
         aprsfi_socket.close()
-        time.sleep(5)
+        time.sleep(2)
 
 # Examples
 # print(generate_valid_id("2023-04-23 21:25:35"))
