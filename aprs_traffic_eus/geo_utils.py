@@ -1,7 +1,8 @@
 import math
+import logging
 
 def dd2dm_raw(latitude, longitude):
-    print("Converting from DD to DM: " + str(latitude) + ", " + str(longitude))
+    logging.debug("Converting from DD to DM: " + str(latitude) + ", " + str(longitude))
 
     degrees_lat = 0
     degrees_long = 0
@@ -44,7 +45,7 @@ def dd2dm_raw(latitude, longitude):
     return lat_dm_str, long_dm_str
 
 def dmraw2aprsformat(lat, long):
-    print("Converting from DM to APRS format: " + str(lat) + ", " + str(long))
+    logging.debug("Converting from DM to APRS format: " + str(lat) + ", " + str(long))
 
     # Latitude parsing
     lat_deg = lat.split('º')[0]
@@ -55,9 +56,7 @@ def dmraw2aprsformat(lat, long):
     else:
         lat_min_str = lat_dec
 
-    #print(lat_deg + lat_min_str)
     lat_min_dec = lat.split('º')[1].split('.')[1]
-    #print(lat_min_dec)
     if len(lat_min_dec) == 4:
         lat_aprs_str = lat_deg + lat_min_str + "." + lat_min_dec[0] + lat_min_dec[1] + lat_min_dec[3]
     else:
@@ -85,7 +84,7 @@ def dmraw2aprsformat(lat, long):
     else:
         long_aprs_str = long_deg_str + long_dec + "." + long_min_dec[0] + long_min_dec[1] + long_min_dec[2]
 
-    print("APRS format: " + str(lat_aprs_str) + ", " + str(long_aprs_str))
+    logging.debug("APRS format: " + str(lat_aprs_str) + ", " + str(long_aprs_str))
     return lat_aprs_str, long_aprs_str
 
 

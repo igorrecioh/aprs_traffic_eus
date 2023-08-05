@@ -7,11 +7,14 @@ from file_utils import normalize_characters
 from aprs_utils import send_incidences
 from dotenv import load_dotenv
 import XmlManager
+import logging
 
 
 # Constants
 xmlFileNameIn = 'IncidenciasTDT.xml'
 xmlFileNameOut = 'IncidenciasTDT_r.xml'
+
+logging.basicConfig(level=logging.INFO)
 
 print("=================================")
 print("     aprs_traffic_eus v0.0.1     ")
@@ -53,9 +56,11 @@ print('- Total incidences in XML file: ' + str(xml_manager.get_xml_incidences())
 print('- Today incidences: ' + str(xml_manager.get_today_incidences()))
 print('- Filtered incidences: ' + str(xml_manager.get_filtered_incidences()))
 
+print()
 xml_manager.print_filtered_incidences()
 print()
 
 # Send all incidences
+print("- Sending all incidences...")
 send_incidences(list_of_incidences, server, port, callsign, password, ssid)
-    
+print("ALL INCIDENCES SENT!")

@@ -1,6 +1,7 @@
 import time
 from geo_utils import dd2dm_raw,dmraw2aprsformat
 from socket import *
+import logging
 
 # APRS
 first_symbol = '\\'
@@ -31,18 +32,18 @@ def send_incidences(list_of_incidences, server, port, callsign, password, ssid):
         lat_aprs, long_aprs = dmraw2aprsformat(lat, long)
 
         # Create and connect to socket
-        print("- Creating and connecting to socket...")
+        logging.debug("- Creating and connecting to socket...")
         aprsfi_socket = socket(AF_INET, SOCK_STREAM)
         aprsfi_socket.connect((str(server), int(port)))
 
         # Login into APRS.FI
-        print("- Login into APRS.IS network")
+        logging.debug("- Login into APRS.IS network")
         loginpacket = f'user {callsign} pass {password} \n'
         aprsfi_socket.send(bytes(loginpacket, 'utf-8'))
         
         # Send packet
         infopacket = f'{callsign}{ssid}>APRS,TCPIP*:;{incidence_id}*{timestamp}{lat_aprs}{first_symbol}{long_aprs}{second_symbol}{info}\n'
-        print("- Sending packet: " + infopacket)
+        logging.debug("- Sending packet: " + infopacket)
         aprsfi_socket.send(bytes(infopacket, 'utf-8'))
         
         # Close socket
