@@ -4,6 +4,8 @@ def normalize_characters(xmlFileNameIn, xmlFileNameOut):
         data = data.replace('í', 'i')
         data = data.replace('Á', 'A')
         data = data.replace('Ó', 'O')
+        data = data.replace('Ú', 'U')
+        data = data.replace('ú', 'u')
   
     with open(xmlFileNameOut, 'w') as file:
         file.write(data)
