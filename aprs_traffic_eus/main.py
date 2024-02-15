@@ -2,7 +2,7 @@ import untangle
 from datetime import date
 from socket import *
 import os
-from http_utils import get_XML_from_URL
+from http_utils import get_file_from_URL
 from file_utils import normalize_characters
 from aprs_utils import send_incidences
 from dotenv import load_dotenv
@@ -38,7 +38,7 @@ today_YYmmdd = date.today().strftime("%Y-%m-%d")
 # Download new XML from source
 print("- Retrieving XML from source...")
 url = os.environ.get('URL')
-get_XML_from_URL(url, xmlFileNameIn)
+get_file_from_URL(url, xmlFileNameIn)
 
 # Replace non-UTF8 characters
 normalize_characters(xmlFileNameIn, xmlFileNameOut)
