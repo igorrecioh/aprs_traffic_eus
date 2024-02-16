@@ -1,4 +1,4 @@
-import Incidence
+import IncidenceEus
 from tabulate import tabulate
 
 
@@ -31,7 +31,7 @@ class XmlManager:
         for incidencia in self.xml_object.raiz.children:
             if today_date in incidencia.fechahora_ini.cdata:
                 if "Desconocida" != incidencia.causa.cdata:
-                    ind = Incidence.Incidence(
+                    ind = IncidenceEus.IncidenceEus(
                         incidencia.tipo.cdata,
                         incidencia.autonomia.cdata,
                         incidencia.provincia.cdata,
