@@ -36,6 +36,7 @@ python main.py
 
 ## References and useful links
 
+- https://opendata.euskadi.eus/catalogo/-/incidencias-trafico-euskadi/
 - https://aprs.fi
 - https://davidpardavila.com/como-convertir-coordenadas-geograficas/
 - https://www.omnicalculator.com/conversion/coordinates-converter#how-to-convert-coordinates-in-dd-to-dms-or-ddm
