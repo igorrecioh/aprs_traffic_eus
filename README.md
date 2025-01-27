@@ -19,7 +19,7 @@ Traffic incidents are gathered from the official [Open Data website](https://ope
     ```
 - Create a ```.env``` file with these variables, as shown in .env_template:
     ```bash
-    URL=https://www.trafikoa.euskadi.eus/servicios/IncidenciasTDT/IncidenciasTrafikoTDTGeo
+    URL=https://apps.trafikoa.euskadi.eus/servicios/IncidenciasTDT/IncidenciasTrafikoTDTGeo
     APRS_SERVER_URL=euro.aprs2.net
     APRS_SERVER_PORT=14580
     CALLSIGN=<YOUR_CALLSIGN>
